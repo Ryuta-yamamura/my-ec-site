@@ -1,0 +1,178 @@
+.firstView {
+  height: calc(100vh);
+  background-image: url(/nfttoppage.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+
+  .firstViewText {
+    white-space: pre-wrap;
+    width: 100%;
+    max-width: 1200px;
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0;
+    padding-bottom: 500px;
+    color: #ffffff;
+    font-weight: bold;
+    text-shadow: 1px 1px 10px #4b2c14;
+    h1 {
+      font-family: "Montserrat", sans-serif;
+      font-size: 56px;
+      line-height: 72px;
+    }
+
+    p {
+      font-size: 18px;
+      margin-top: 20px;
+    }
+  }
+}
+.lead {
+  white-space: pre-wrap;
+  max-width: 1200px;
+  margin: 60px auto;
+ p{
+  line-height: 2;
+  text-align: center;
+ }
+}
+
+.linkButtonArea {
+  text-align: center;
+}
+
+.linkButton {
+  display: block;
+  position: relative;
+  margin: 40px auto;
+  width: 240px;
+  height: 60px;
+  background: rgb(153,191,187);
+  background: radial-gradient(rgba(93,108,107,0.3) 0%,
+  rgba(95,162,158,0) 90%);
+  box-shadow: 0 0 24px rgba(116,132,145,1);
+  transition: all 0.5s ease;
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: 2;
+    top: -4px;
+    left: 0;
+    width: 160px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgb(170,255,240);
+    background: radial-gradient(rgba(255,255,255,1) 0%,
+    rgba(255,255,255,0) 33%, rgba(255,255,255,0) 100%);
+  }
+  &::after{
+    content : '' ;
+    position : absolute ;
+    z-index : 2 ;
+    bottom : -4px ;
+    right : 0 ;
+    width : 160px ;
+    height : 10px ;
+    border-radius : 50% ;
+    background: rgb(170,255,240);
+    background: radial-gradient( rgba(255,255,255,1) 0%, rgba(255,255,255,0) 33%, rgba(255,255,255,0) 100%);
+  }
+  &:hover{
+    box-shadow : 0 0 24px rgba(116,132,145,0) ;
+    .buttonBox {
+      letter-spacing : 6px ;
+      // color: #000000;
+      // color : rgba(255,255,255,1) ;
+    }
+  }  
+}
+
+
+.buttonWrapper{
+  width : 100% ;
+  height :100% ;
+  // clip-path: polygon(0% 0%, 0 100%, 0.7% 100%, 0.7% 3%, 99.3% 3%, 99.3% 98%, 0% 98%, 0% 100%, 100% 100%, 100% 0%);
+  background-color:hsla(0,0%,100%,1);
+  background-image:
+  radial-gradient(at 0% 0%, hsla(180,100%,98%,1) 0px, transparent 50%),
+  radial-gradient(at 29% 0%, hsla(189,100%,78%,1) 0px, transparent 50%),
+  radial-gradient(at 0% 48%, hsla(355,0%,100%,1) 0px, transparent 50%),
+  radial-gradient(at 100% 62%, hsla(340,0%,100%,1) 0px, transparent 50%),
+  radial-gradient(at 90% 98%, hsla(169,88%,83%,1) 0px, transparent 50%),
+  radial-gradient(at 26% 100%, hsla(240,0%,44%,1) 0px, transparent 50%),
+  radial-gradient(at 79% 0%, hsla(336,0%,51%,1) 0px, transparent 50%);
+}
+
+.buttonBox{
+  display : flex ;
+  justify-content : center ;
+  align-items : center ;
+  position : absolute ;
+  z-index : 1 ;
+  top : 3% ;
+  left : 0.8% ;
+  width : 98.4% ;
+  height : 94% ;
+  color: #000000;
+  // color : rgba(255,255,255,.7) ;
+  font-family: "Montserrat", sans-serif;
+
+  letter-spacing : 2px ;
+  background: rgb(255,255,255);
+  background: linear-gradient(120deg, rgba(255,255,255,.4) 0%, rgba(255,255,255,0) 50%);
+  transition : all 1s ease ;
+  &::before{
+    content : '' ;
+    position : absolute ;
+    z-index : -1 ;
+    top : 0 ;
+    left : 0 ;
+    width : 100% ;
+    height : 100% ;
+    background : linear-gradient( 120deg , rgba(255,255,255,.4),rgba(255,255,255,0)) ;
+    clip-path : path('M215.98,12.57c8.09,0,16.1,.12,24.02,.33V0H0V44.89C53.01,25.06,130.12,12.57,215.98,12.57Z');
+  }  
+}
+
+@media(max-width: 800px) {
+  .firstView {
+    height: calc(100vh - 80px);
+    // スマホ用の画像を用意すること
+    // background-image: url(/nfttoppage.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100%;
+    background-color: #4b2c14;
+    align-items: flex-start;
+  }  
+  .firstViewText {
+    padding-top: 90px;
+    padding-left: 20px;
+    h1 {
+      font-size: 36px;
+      line-height: 48px;
+    }
+    p {
+      font-size: 14px;
+      margin-top: 15px;
+    }
+  }
+
+  .lead {
+    padding:0 20px;
+    p {
+      text-align: left;
+    }
+  
+  }
+}
+
+.recommended {
+  background-color: #f8f8f8;
+  padding-top: 45px;
+  padding-bottom: 55px;
+}
