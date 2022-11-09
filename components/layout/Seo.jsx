@@ -9,8 +9,9 @@ const Seo = ({
   pageImgHeight,
   fontPath
 }) => {
-  const defaultTitle = ''
-  const defaultDescription = 'demo'
+  // 共通タイトルはここに入力
+  const defaultTitle = 'Phonograph.Co'
+  const defaultDescription = 'いつもと違った体験をあなたに。PhonographでNFTを始めてみませんか。'
 
   const title = pageTitle ? `${pageTitle} | ${defaultTitle}` : defaultTitle
   const description = pageDescription ? pageDescription : defaultDescription

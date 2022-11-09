@@ -12,10 +12,7 @@ export default function Home() {
   return (
     <div className=''>
       <Seo
-        pageTitle={'HOME'}
-        pageImg={'https://demo.com'}
-        pageImgWidth={1280}
-        pageImgHeight={960}
+        pageTitle={'ACCESS'}
         fontPath = {'https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap'}
       />
 

@@ -41,10 +41,10 @@
  }
 }
 
+// ボタンレイアウト
 .linkButtonArea {
   text-align: center;
 }
-
 .linkButton {
   display: block;
   position: relative;
@@ -85,17 +85,15 @@
     box-shadow : 0 0 24px rgba(116,132,145,0) ;
     .buttonBox {
       letter-spacing : 6px ;
-      // color: #000000;
+      color: #000000;
       // color : rgba(255,255,255,1) ;
     }
   }  
 }
-
-
 .buttonWrapper{
   width : 100% ;
   height :100% ;
-  // clip-path: polygon(0% 0%, 0 100%, 0.7% 100%, 0.7% 3%, 99.3% 3%, 99.3% 98%, 0% 98%, 0% 100%, 100% 100%, 100% 0%);
+  clip-path: polygon(0% 0%, 0 100%, 0.7% 100%, 0.7% 3%, 99.3% 3%, 99.3% 98%, 0% 98%, 0% 100%, 100% 100%, 100% 0%);
   background-color:hsla(0,0%,100%,1);
   background-image:
   radial-gradient(at 0% 0%, hsla(180,100%,98%,1) 0px, transparent 50%),
@@ -106,7 +104,6 @@
   radial-gradient(at 26% 100%, hsla(240,0%,44%,1) 0px, transparent 50%),
   radial-gradient(at 79% 0%, hsla(336,0%,51%,1) 0px, transparent 50%);
 }
-
 .buttonBox{
   display : flex ;
   justify-content : center ;
@@ -117,7 +114,7 @@
   left : 0.8% ;
   width : 98.4% ;
   height : 94% ;
-  color: #000000;
+  color: #645d5d;
   // color : rgba(255,255,255,.7) ;
   font-family: "Montserrat", sans-serif;
 
@@ -148,6 +145,7 @@
     background-size: 100%;
     background-color: #4b2c14;
     align-items: flex-start;
+    margin-top: 80px;
   }  
   .firstViewText {
     padding-top: 90px;
@@ -175,4 +173,55 @@
   background-color: #f8f8f8;
   padding-top: 45px;
   padding-bottom: 55px;
+  h2 {
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+    &::after{
+      content: '';
+      display: block;
+      width: 36px;
+      height: 3px;
+      background-color: #000000;
+      margin: 20px auto 0;
+    }
+  }
+
+  .itemList{
+    padding-left:20px;
+    padding-right:20px;
+    li{
+      width: 220px;
+      margin-left: 30px;
+    }
+  }
+}
+
+.itemList {
+  display: flex;
+  padding: 40px 60px 10px;
+  overflow: scroll;
+  li {
+    flex-shrink: 0;
+    width: 260px;
+    margin-left: 75px;
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+  dl{
+    margin-top: 20px;
+  }
+  dt {
+    font-weight: bold;
+  }
+  dd{
+    font-size: 13px;
+    line-height: 20px;
+    margin-top: 10px;
+  }
+  .price{
+    font-weight: bold;
+    margin-top: 15px;
+  }
 }

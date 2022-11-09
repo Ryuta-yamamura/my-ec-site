@@ -16,8 +16,11 @@ export default function App() {
     <header className={css.header}>
       <div className={css.headerInner}>
         <Link href="/">
-          <Image className={css.headerLogo} src="/homelogo.jpg" alt="logo" width={90} height={70}></Image>
-        </Link>
+          <div>
+          <Image className={css.headerLogo} src="/homelogo.jpg" alt="logo" width={90} height={90}></Image>
+          HOME
+          </div>
+          </Link>
         {/* <button className={css.toggleMenuButton}></button> */}
         <div className={css.toggleMenuButton} onClick={() => menuFunction()}>
           <span className={openMenu ? css.open : undefined}></span>
@@ -33,10 +36,10 @@ export default function App() {
                 <span></span>
                 <p>Close</p>
               </div>
-              <li><Link href="/CONCEPT">CONCEPT</Link></li>
-              <li><Link href="/MENU">MENU</Link></li>
-              <li><Link href="/SHOP">SHOP</Link></li>
-              <li><Link href="/ACCESS">ACCESS</Link></li>
+              <li><Link href="/concept">CONCEPT</Link></li>
+              <li><Link href="/menu">MENU</Link></li>
+              <li><Link href="/shop">SHOP</Link></li>
+              <li><Link href="/access">ACCESS</Link></li>
             </ul>
           </nav>
         </div>
