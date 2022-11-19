@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import styles from '../styles/Home.module.scss'
+import styles from '../styles/access.module.scss'
 import DbMenu from '../components/layout/DbMenu'
 import Seo from '../components/layout/Seo'
 
@@ -10,70 +10,50 @@ export default function Home() {
   const commerce = new DbMenu;
 
   return (
-    <div className=''>
+    <div className={styles.main}>
       <Seo
         pageTitle={'ACCESS'}
-        fontPath = {'https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap'}
+        fontPath={'https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap'}
       />
-
-      <div className={styles.firstView}>
-        <div className={styles.firstViewText}>
-          <h1>{`Imagination will\ntake you everywhere.`}</h1>
-          <p>NFTから新しい世界を創造する。</p>
-        </div>
+      <div className={styles.title}>
+        <h1>ACCESS</h1>
+        <p>アクセス・お問い合わせ</p>
       </div>
-      <div className={styles.lead}>
-        <p>{`「想像力はあなたをどこにでも連れて行ってくれる」\n注文を待つ間に広げた、一冊の本の中に見つけた言葉。\nゆったり流れる時間の中で、想像を膨らませる楽しさを思い出す。\nそんな時間を過ごすとき、おいしいコーヒーがあると嬉しい。`}
-        </p>
-        {/* ボタンコンポーネント始まり */}
-        <div className={styles.linkButtonArea}>
-          <div className={styles.linkButton} >
-            <div className={styles.buttonWrapper}></div>
-            <Link href='/concept'>
-                <div className={styles.buttonBox}>
-                  CONCEPT
-                </div>
-            </Link>
-          </div>
-        </div>
-        {/* ボタンコンポーネント終わり */}
+      <div className={styles.map}>
+        <h2>アクセスマップ</h2>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3132.478506631269!2d140.8619308508084!3d38.26839929127869!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f8a282df6a37695%3A0x27e87a420fbe219c!2z44CSOTgwLTA4MDEg5a6u5Z-O55yM5LuZ5Y-w5biC6Z2S6JGJ5Yy65pyo55S66YCa77yR5LiB55uu77yS4oiS77yR77yZ!5e0!3m2!1sja!2sjp!4v1667966464562!5m2!1sja!2sjp" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
-
-      <div className={styles.recommended}>
-        <h2>RECOMMEND</h2>
-        <ul className={styles.itemList}>
-          {/* 商品配列始まり */}
-          {
-            commerce.map((shohin, i) => (
-
-              <li key={i}>
-                <img src={shohin.imgUrl} alt="No Image"></img>
-                <dl>
-                  <dt>{shohin.title}</dt>
-                  <dd>{shohin.description}</dd>
-                </dl>
-                <p className={styles.price}>¥{shohin.price}</p>
-              </li>
-            ))
-          }
-          {/* 商品配列終わり */}
-        </ul>
-        {/* ボタンコンポーネント始まり */}
-        <div className={styles.linkButtonArea}>
-          <div className={styles.linkButton} >
-            <div className={styles.buttonWrapper}></div>
-            <Link href='/menu'>
-                <div className={styles.buttonBox}>
-                  MENU
-                </div>
-            </Link>
-          </div>
-        </div>
-        {/* ボタンコンポーネント終わり */}
-
+      <div className={styles.contact}>
+        <h2>お問い合わせフォーム</h2>
+        <form action='#'>
+          <dl className={styles.formArea}>
+            <dt><span className={styles.required}>お名前</span></dt>
+            <dd><input className={styles.inputText} type='text' name='name'></input></dd>
+            <dt><span className={styles.required}>メールアドレス</span></dt>
+            <dd><input className={styles.inputText} type='email' name='email' required></input></dd>
+            <dt>お電話番号</dt>
+            <dd></dd>
+            <dt>お問い合わせ種別</dt>
+            <dd>
+              <select>
+              <option value='about reserve'>ご予約について</option>
+              <option value='about menu'>メニューについて</option>
+              <option value='about time'>営業時間について</option>
+              </select>
+            </dd>
+            <dt>お客様について</dt>
+            <dd>
+            <label className={styles.radioButton}><input type='radio' className='userType' value='normal' checked></input>一般のお客様</label>
+            <label className={styles.radioButton}><input type='radio' className='userType' value='company'></input>お取引様</label>
+            <label className={styles.radioButton}><input type='radio' className='userType' value='others'></input>その他</label>
+            </dd>
+            <dt><span className={styles.required}>お問い合わせ内容</span></dt>
+            <dd><textarea className={styles.message} name='message' required></textarea></dd>
+          </dl>
+          <p className={styles.cofirmText}>ご入力内容を確認の上、お間違いなければSubmitボタンを押してください。</p>
+          <button className={styles.submitButton} type='submit'>Submit</button>
+        </form>
       </div>
-
-
     </div>
   )
 }

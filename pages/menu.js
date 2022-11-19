@@ -1,5 +1,5 @@
 import stylesMenu from '../styles/menu.module.scss'
-import DbMenu from '../components/layout/DbMenu'
+import DbMenu from '../components/lib/DbMenu'
 import Seo from '../components/layout/Seo'
 
 
@@ -26,13 +26,13 @@ export default function Menu() {
             commerce.map((shohin, i) => (
 
               <li>
-                <img src={shohin.imgUrl} alt="No Image"></img>
+                <img src={`products/${shohin.image}`} alt="No Image"></img>
                 <dl>
-                  <dt>{shohin.title}</dt>
+                  <dt>{shohin.product_name}</dt>
                   <dd>{shohin.description}</dd>
                 </dl>
                 <p className={stylesMenu.price}>¥{shohin.price}</p>
-                <p className={stylesMenu.itemLabel}>{shohin.itemLabel}</p>
+                <p className={stylesMenu.itemLabel}>{shohin.english_label}</p>
               </li>
             ))
           }

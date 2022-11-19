@@ -39,11 +39,23 @@
         position: relative;
     }
 
+    img {
+        height: 55%;
+        width: 85%;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 100%;
+        background-color: #4b2c14;
+        align-items: flex-start;
+        box-shadow: 4px 4px 16px #808080;
+      }
+    
+
     .itemLabel {
         position: absolute;
         top: 0;
-        left: calc(100% + 18px);
-        font-size: 10px;
+        left: calc(85% + 18px);
+        font-size: 12px;
         white-space: nowrap;
         transform-origin: top left;
         transform: rotate(90deg);

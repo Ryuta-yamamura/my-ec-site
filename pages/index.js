@@ -1,8 +1,8 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import styles from '../styles/Home.module.scss'
-import DbMenu from '../components/layout/DbMenu'
 import Seo from '../components/layout/Seo'
+import DbMenu from '../components/lib/DbMenu'
 
 
 export default function Home() {
@@ -47,12 +47,12 @@ export default function Home() {
         <ul className={styles.itemList}>
           {/* 商品配列始まり */}
           {
-            commerce.map((shohin, i) => (
+            commerce.map((shohin) => (
 
-              <li key={i}>
-                <img src={shohin.imgUrl} alt="No Image"></img>
+              <li key={shohin.product_id}>
+                <img src={`products/${shohin.image}`} alt="No Image"></img>
                 <dl>
-                  <dt>{shohin.title}</dt>
+                  <dt>{shohin.product_name}</dt>
                   <dd>{shohin.description}</dd>
                 </dl>
                 <p className={styles.price}>¥{shohin.price}</p>

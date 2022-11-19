@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import styles from '../styles/shop.module.scss'
-import DbMenu from '../components/layout/DbMenu'
+import DbMenu from '../components/lib/DbMenu'
 import Seo from '../components/layout/Seo'
 
 
@@ -20,28 +20,30 @@ export default function Home() {
       </div>
 
       <div className={styles.shopContents}>
-        {/* DBから商品の内容を抽出 */}
         <div className={styles.shopItem}>
           <div className={styles.itemGroup}>
             {/* 商品カテゴリ名 */}
-            <h2>GARDENING GOODS</h2>
+            <h2>SHOP LIST</h2>
             <ul className={styles.itemList}>
-            {/* 商品配列始まり */}
-            {
-              commerce.map((shohin, i) => (
+              {/* 商品配列始まり */}
+              {
+                commerce.map((shohin, i) => (
 
-                <li>
-                  <a href='/shopDetail'>
-                    <img src={shohin.imgUrl} alt="No Image"></img>
-                    <dl>
-                      <dt>{shohin.title}</dt>
-                      <dd>{shohin.description}</dd>
-                    </dl>
-                  </a>
-                </li>
-              ))
-            }
-            {/* 商品配列終わり */}
+                  <li key={i}>
+                    <Link href={`/shopDetail/?id=${shohin.product_id}`}>
+                    <a>
+                      <img src={`products/${shohin.image}`} alt="No Image"></img>
+                      <dl>
+                        <dt>{shohin.product_name}</dt>
+                        <dd>{shohin.description}</dd>
+                      </dl>
+                    </a>
+                    </Link>
+                  </li>
+                  
+                ))
+              }
+              {/* 商品配列終わり */}
             </ul>
           </div>
         </div>
@@ -49,30 +51,18 @@ export default function Home() {
           <div className={styles.shopMenuInner}>
             <h2>ITEM LIST</h2>
             <ul>
-            <li>
-                <a href='/shopDetail'>ハンドフォーク</a>
-              </li>
-              <li>
-                <a href='/shopDetail'>オニオンホー</a>
-              </li>
-              <li>
-                <a href='/shopDetail'>除草ピック</a>
-              </li>
-              <li>
-                <a href='/shopDetail'>ガーデン捕虫器</a>
-              </li>
-              <li>
-                <a href='/shopDetail'>誘引麻ひも</a>
-              </li>
-              <li>
-                <a href='/shopDetail'>ラバーグローブ</a>
-              </li>
-              <li>
-                <a href='/shopDetail'>種保存袋</a>
-              </li>
-              <li>
-                <a href='/shopDetail'>クロス</a>
-              </li>
+              {/* 商品配列始まり */}
+              {
+                commerce.map((shohin) => (
+                  <li key={shohin.product_id}>
+                    <Link href={`/shopDetail/?id=${shohin.product_id}`}>
+                      <a>
+                        {shohin.product_name}
+                      </a>
+                    </Link>
+                  </li>
+                ))
+              }
             </ul>
           </div>
         </aside>

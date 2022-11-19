@@ -209,6 +209,16 @@
       margin-left: 0;
     }
   }
+  img {
+    height: 55%;
+    width: 85%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100%;
+    background-color: #4b2c14;
+    align-items: flex-start;
+    box-shadow: 4px 4px 16px #808080;
+  }
   dl{
     margin-top: 20px;
   }

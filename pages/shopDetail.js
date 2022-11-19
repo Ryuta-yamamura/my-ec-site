@@ -1,12 +1,44 @@
 import Link from 'next/link'
 import styles from '../styles/shop.module.scss'
-import DbMenu from '../components/layout/DbMenu'
+import DbMenu from '../components/lib/DbMenu'
 import Seo from '../components/layout/Seo'
+import { useRouter } from 'next/router'
+import { useState, useEffect } from 'react'
 
 
 export default function Home() {
+  const [loadingState, setLoadingState] = useState('not-loaded');
+  const [product, setProduct] = useState([]);
+
 
   const commerce = new DbMenu;
+
+  const router = useRouter();
+  const query = router.query;
+  useEffect(() => {
+    if (router.isReady) {
+      selectProduct();
+    };
+
+  }, [query, router]);
+
+
+
+  async function selectProduct() {
+
+    const response = await fetch(`/api/id?id=${query.id}`);
+    const data = await response.json();
+
+    setProduct(data.queryresult[0]);
+    setLoadingState('loaded');
+
+  }
+  // const initCommerce =commerce;
+  // console.log(initCommerce);
+  if (loadingState === 'not-loaded' && !product.length) return (
+    <h1 className="px-20 py-10 text-3xl">now loading</h1>
+  )
+
 
   return (
     <div className=''>
@@ -22,15 +54,15 @@ export default function Home() {
       <div className={styles.shopContents}>
         {/* DBから商品の内容を抽出 */}
         <div className={styles.shopItem}>
-          <h2>ガーデン捕虫器</h2>
+          <h2>{product[0].product_name}</h2>
           <div className={styles.itemArea}>
-            <img src='/cat-2946028_960_720.jpg' alt=''></img>
+            <img src={`/products/${product[0].image}`} alt='no image'></img>
             <div className={styles.aboutItem}>
               <p className={styles.itemText}>
                 木の枝やガーデンにつるして、害虫を捕獲します。底に果実などを入れて無視を誘い込みます。
                 農薬や殺虫剤を使わず、安全に虫対策ができることからオーガニック菜園におすすめです。
               </p>
-              <p className={styles.itemPrice}>¥3,000</p>
+              <p className={styles.itemPrice}>¥{product[0].price}</p>
               <a>BUY NOW</a>
             </div>
           </div>
@@ -40,17 +72,20 @@ export default function Home() {
             <ul className={styles.itemList}>
               {/* 商品配列始まり */}
               {
-                commerce.map((shohin, i) => (
-
-                  <li>
-                    <a href='/shopDetail'>
-                      <img src={shohin.imgUrl} alt="No Image"></img>
-                      <dl>
-                        <dt>{shohin.title}</dt>
-                        <dd>{shohin.description}</dd>
-                      </dl>
-                    </a>
+                commerce.map((shohin) => (
+                  <li key={shohin.product_id}>
+                    <Link href={`/shopDetail/?id=${shohin.product_id}`}>
+                      <a>
+                        <img src={`products/${shohin.image}`} alt="No Image"></img>
+                        <dl>
+                          <dt>{shohin.product_name}</dt>
+                          <dd>{shohin.description}</dd>
+                        </dl>
+                      </a>
+                    </Link>
                   </li>
+
+
                 ))
               }
               {/* 商品配列終わり */}
@@ -62,30 +97,17 @@ export default function Home() {
           <div className={styles.shopMenuInner}>
             <h2>ITEM LIST</h2>
             <ul>
-              <li>
-                <a href='/shopDetail'>ハンドフォーク</a>
-              </li>
-              <li>
-                <a href='/shopDetail'>オニオンホー</a>
-              </li>
-              <li>
-                <a href='/shopDetail'>除草ピック</a>
-              </li>
-              <li>
-                <a href='/shopDetail'>ガーデン捕虫器</a>
-              </li>
-              <li>
-                <a href='/shopDetail'>誘引麻ひも</a>
-              </li>
-              <li>
-                <a href='/shopDetail'>ラバーグローブ</a>
-              </li>
-              <li>
-                <a href='/shopDetail'>種保存袋</a>
-              </li>
-              <li>
-                <a href='/shopDetail'>クロス</a>
-              </li>
+              {
+                commerce.map((shohin) => (
+                  <li key={shohin.product_id}>
+                    <Link href={`/shopDetail/?id=${shohin.product_id}`}>
+                      <a>
+                        {shohin.product_name}
+                      </a>
+                    </Link>
+                  </li>
+                ))
+              }
             </ul>
           </div>
         </aside>

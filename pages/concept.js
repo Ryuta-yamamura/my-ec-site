@@ -13,7 +13,6 @@ export default function Concept() {
         fontPath = {'https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap'}
       />
 
-      <main className='main'>
         <div className={stylesConcept.title}>
           <h1>CONCEPT</h1>
           <p>私たちについて</p>
@@ -43,10 +42,9 @@ export default function Concept() {
 
         <div className={stylesConcept.movie}>
           <h2>CONCEPT MOVIE</h2>
-          <iframe src="https://www.youtube.com/embed/RhJ7_dcwDpM?start=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/RhJ7_dcwDpM?start=0" title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           <p>家具工場の跡地を改装したインダストリアルな空間に、季節の草花と優しい言葉、そしておいしいコーヒーがお客様をお待ちしています。</p>
         </div>
-      </main>
     </div >
 
   )
