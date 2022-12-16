@@ -1,13 +1,11 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import styles from '../styles/access.module.scss'
-import DbMenu from '../components/layout/DbMenu'
 import Seo from '../components/layout/Seo'
 
 
 export default function Home() {
 
-  const commerce = new DbMenu;
 
   return (
     <div className={styles.main}>
@@ -21,7 +19,7 @@ export default function Home() {
       </div>
       <div className={styles.map}>
         <h2>アクセスマップ</h2>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3132.478506631269!2d140.8619308508084!3d38.26839929127869!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f8a282df6a37695%3A0x27e87a420fbe219c!2z44CSOTgwLTA4MDEg5a6u5Z-O55yM5LuZ5Y-w5biC6Z2S6JGJ5Yy65pyo55S66YCa77yR5LiB55uu77yS4oiS77yR77yZ!5e0!3m2!1sja!2sjp!4v1667966464562!5m2!1sja!2sjp" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3132.478506631269!2d140.8619308508084!3d38.26839929127869!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f8a282df6a37695%3A0x27e87a420fbe219c!2z44CSOTgwLTA4MDEg5a6u5Z-O55yM5LuZ5Y-w5biC6Z2S6JGJ5Yy65pyo55S66YCa77yR5LiB55uu77yS4oiS77yR77yZ!5e0!3m2!1sja!2sjp!4v1667966464562!5m2!1sja!2sjp" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
       </div>
       <div className={styles.contact}>
         <h2>お問い合わせフォーム</h2>
@@ -43,7 +41,7 @@ export default function Home() {
             </dd>
             <dt>お客様について</dt>
             <dd>
-            <label className={styles.radioButton}><input type='radio' className='userType' value='normal' checked></input>一般のお客様</label>
+            <label className={styles.radioButton}><input type='radio' className='userType' value='normal' defaultChecked={true}></input>一般のお客様</label>
             <label className={styles.radioButton}><input type='radio' className='userType' value='company'></input>お取引様</label>
             <label className={styles.radioButton}><input type='radio' className='userType' value='others'></input>その他</label>
             </dd>

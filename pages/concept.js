@@ -42,7 +42,7 @@ export default function Concept() {
 
         <div className={stylesConcept.movie}>
           <h2>CONCEPT MOVIE</h2>
-          <iframe src="https://www.youtube.com/embed/RhJ7_dcwDpM?start=0" title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/RhJ7_dcwDpM?start=0" title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
           <p>家具工場の跡地を改装したインダストリアルな空間に、季節の草花と優しい言葉、そしておいしいコーヒーがお客様をお待ちしています。</p>
         </div>
     </div >

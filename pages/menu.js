@@ -5,14 +5,14 @@ import Seo from '../components/layout/Seo'
 
 
 export default function Menu() {
-    const commerce = new DbMenu;
+  const commerce = new DbMenu;
 
 
   return (
     <div>
       <Seo
         pageTitle={'MENU'}
-        fontPath = {'https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap'}
+        fontPath={'https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap'}
       />
 
       <main className='main'>
@@ -23,10 +23,9 @@ export default function Menu() {
         <ul className={stylesMenu.itemList}>
           {/* 商品配列始まり */}
           {
-            commerce.map((shohin, i) => (
-
-              <li>
-                <img src={`products/${shohin.image}`} alt="No Image"></img>
+            commerce.map((shohin) => (
+              <li key={shohin.product_id}>
+                <img src={shohin.image} alt="No Image"></img>
                 <dl>
                   <dt>{shohin.product_name}</dt>
                   <dd>{shohin.description}</dd>
@@ -38,7 +37,7 @@ export default function Menu() {
           }
           {/* 商品配列終わり */}
         </ul>
-            
+
 
       </main>
     </div >

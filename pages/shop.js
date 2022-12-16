@@ -27,12 +27,11 @@ export default function Home() {
             <ul className={styles.itemList}>
               {/* 商品配列始まり */}
               {
-                commerce.map((shohin, i) => (
-
-                  <li key={i}>
+                commerce.map((shohin) => (
+                  <li key={shohin.product_id}>
                     <Link href={`/shopDetail/?id=${shohin.product_id}`}>
                     <a>
-                      <img src={`products/${shohin.image}`} alt="No Image"></img>
+                      <img src={shohin.image} alt="No Image"></img>
                       <dl>
                         <dt>{shohin.product_name}</dt>
                         <dd>{shohin.description}</dd>

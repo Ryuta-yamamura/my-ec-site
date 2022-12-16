@@ -4,11 +4,14 @@ import DbMenu from '../components/lib/DbMenu'
 import Seo from '../components/layout/Seo'
 import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react'
+import { getDownloadURL, ref } from "firebase/storage"
+import {storage} from '../components/storage/firebase'
 
 
 export default function Home() {
   const [loadingState, setLoadingState] = useState('not-loaded');
   const [product, setProduct] = useState([]);
+  const firebaseStoragePass = process.env.NEXT_PUBLIC_FIREBASE_STORAGE_PASS
 
 
   const commerce = new DbMenu;
@@ -28,6 +31,13 @@ export default function Home() {
 
     const response = await fetch(`/api/id?id=${query.id}`);
     const data = await response.json();
+    const dataVal = data.queryresult[0]
+    const gsReference =  ref(storage, `${firebaseStoragePass}${dataVal[0].image}`);
+    await getDownloadURL(gsReference)
+    .then(url => {
+      dataVal[0].image = url 
+    })
+    .catch(err => console.log(err))
 
     setProduct(data.queryresult[0]);
     setLoadingState('loaded');
@@ -56,7 +66,7 @@ export default function Home() {
         <div className={styles.shopItem}>
           <h2>{product[0].product_name}</h2>
           <div className={styles.itemArea}>
-            <img src={`/products/${product[0].image}`} alt='no image'></img>
+            <img src={product[0].image} alt='no image'></img>
             <div className={styles.aboutItem}>
               <p className={styles.itemText}>
                 木の枝やガーデンにつるして、害虫を捕獲します。底に果実などを入れて無視を誘い込みます。
@@ -76,7 +86,7 @@ export default function Home() {
                   <li key={shohin.product_id}>
                     <Link href={`/shopDetail/?id=${shohin.product_id}`}>
                       <a>
-                        <img src={`products/${shohin.image}`} alt="No Image"></img>
+                        <img src={shohin.image} alt="No Image"></img>
                         <dl>
                           <dt>{shohin.product_name}</dt>
                           <dd>{shohin.description}</dd>

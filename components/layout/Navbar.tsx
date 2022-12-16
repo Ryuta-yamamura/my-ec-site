@@ -2,16 +2,30 @@ import Link from 'next/link'
 import Image from 'next/image'
 import css from '../css/navbar.module.scss'
 import React, { useState } from "react"
+import "../firebase/init"
+import { getAuth, signOut } from "firebase/auth"
+import { useRouter } from "next/router"
+import { useAuthContext } from "../firebase/auth/authContext"
+import { Alert, Button, Snackbar } from '@mui/material'
 
-export default function App() {
 
+const App = () => {
+  const { user } = useAuthContext()
+  const isLoggedIn = !!user
+  const router = useRouter()
+  const auth = getAuth()
+  const handleLogout = async () => {
+    await signOut(auth)
+    console.log("logedout!")
+    // await router.push("/")
+
+  }
+  
   const [openMenu, setOpenMenu] = useState(false);
   const menuFunction = () => {
-    console.log('openMenu is' && openMenu)
     setOpenMenu(!openMenu);
-    console.log('openMenu is' && openMenu)
-    console.log('clicked!')
   }
+  
   return (
     <header className={css.header}>
       <div className={css.headerInner}>
@@ -36,10 +50,14 @@ export default function App() {
                 <span></span>
                 <p>Close</p>
               </div>
-              <li><Link href="/concept">CONCEPT</Link></li>
-              <li><Link href="/menu">MENU</Link></li>
-              <li><Link href="/shop">SHOP</Link></li>
-              <li><Link href="/access">ACCESS</Link></li>
+              <li><Button><Link href="/concept">CONCEPT</Link></Button></li>
+              <li><Button><Link href="/menu">MENU</Link></Button></li>
+              <li><Button><Link href="/shop">SHOP</Link></Button></li>
+              <li><Button><Link href="/access">ACCESS</Link></Button></li>
+              {isLoggedIn ?
+              <li><Button onClick= {() => handleLogout()}>LOGOUT</Button></li> : 
+              <li><Button><Link href="/login">LOGIN</Link></Button></li>
+            }
             </ul>
           </nav>
         </div>
@@ -49,3 +67,5 @@ export default function App() {
 
   )
 }  
+
+export default App

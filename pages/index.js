@@ -16,7 +16,7 @@ export default function Home() {
         pageImg={'https://demo.com'}
         pageImgWidth={1280}
         pageImgHeight={960}
-        fontPath = {'https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap'}
+        fontPath={'https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap'}
       />
 
       <div className={styles.firstView}>
@@ -33,9 +33,9 @@ export default function Home() {
           <div className={styles.linkButton} >
             <div className={styles.buttonWrapper}></div>
             <Link href='/concept'>
-                <div className={styles.buttonBox}>
-                  CONCEPT
-                </div>
+              <div className={styles.buttonBox}>
+                CONCEPT
+              </div>
             </Link>
           </div>
         </div>
@@ -50,7 +50,7 @@ export default function Home() {
             commerce.map((shohin) => (
 
               <li key={shohin.product_id}>
-                <img src={`products/${shohin.image}`} alt="No Image"></img>
+                <img src={shohin.image} alt='NO IMAGE'/>
                 <dl>
                   <dt>{shohin.product_name}</dt>
                   <dd>{shohin.description}</dd>
@@ -66,9 +66,9 @@ export default function Home() {
           <div className={styles.linkButton} >
             <div className={styles.buttonWrapper}></div>
             <Link href='/menu'>
-                <div className={styles.buttonBox}>
-                  MENU
-                </div>
+              <div className={styles.buttonBox}>
+                MENU
+              </div>
             </Link>
           </div>
         </div>

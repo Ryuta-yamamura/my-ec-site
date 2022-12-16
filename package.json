@@ -9,19 +9,26 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@mui/icons-material": "^5.10.16",
+    "@mui/material": "^5.10.16",
+    "axios": "^1.2.0",
     "date-utils": "^1.2.21",
-    "mdb-react-ui-kit": "^4.2.0",
+    "firebase": "^9.14.0",
+    "formidable": "^2.0.1",
     "mysql2": "^2.3.3",
     "next": "12.3.1",
-    "next-auth": "^4.16.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-firebaseui": "^6.0.0",
     "sass": "^1.55.0",
     "sequelize": "^6.25.5",
     "sql-template-strings": "^2.2.2"
   },
   "devDependencies": {
     "eslint": "8.25.0",
-    "eslint-config-next": "12.3.1"
+    "eslint-config-next": "12.3.1",
+    "typescript": "4.9.4"
   }
 }
